@@ -1,0 +1,140 @@
+#:kivy 1.11.1
+
+<CalcLayout>:
+    id:calculator
+    display:expression
+    TextInput:
+        id:expression
+        font_size:70
+        size:root.width,root.height/3
+        pos:(0,root.center_y+100)
+        multiline:False
+        on_text_validate:calculator.calculate(expression.text)
+
+    GridLayout:
+        cols:5
+        size:root.width,root.height/2
+        Button:
+            text:'sin'
+            font_size:70
+            on_press:expression.text += "np.sin("
+        Button:
+            text:'cos'
+            font_size:70
+            on_press:expression.text += "np.cos("
+        Button:
+            text:'tan'
+            font_size:70
+            on_press:expression.text += "np.tan("
+        Button:
+            text:'  variable \n (start,stop,step)'
+            font_size:35
+            on_press:expression.text += "np.arange("
+        Button:
+            text:'Plot'
+            font_size:70
+            on_press:calculator.graph(expression.text)
+
+        Button:
+            text:'('
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:')'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'pi'
+            font_size:70
+            on_press:expression.text += "np.pi"
+        Button:
+            text:'e'
+            font_size:70
+            on_press:expression.text += "np.e"
+        Button:
+            text:'del'
+            font_size:70
+            on_press:expression.text = expression.text[:-1]
+        Button:
+            text:'log'
+            font_size:70
+            on_press:expression.text += "np.log10("
+        Button:
+            text:'7'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'8'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'9'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'*'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'ln'
+            font_size:70
+            on_press:expression.text += "np.log("
+        Button:
+            text:'4'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'5'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'6'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'-'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'**'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'1'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'2'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'3'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'+'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'Clear'
+            font_size:70
+            on_press:expression.text =''
+        Button:
+            text:'0'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'.'
+            font_size:70
+            on_press:expression.text += self.text
+        Button:
+            text:'/'
+            on_press:expression.text += self.text
+            font_size:70
+        Button:
+            text:'='           
+            on_press:calculator.calculate(expression.text)
+            font_size:70
+
+
+        
